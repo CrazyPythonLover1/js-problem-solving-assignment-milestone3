@@ -8,7 +8,7 @@ function feetToMile(feet){
     if (feet>0){
         var mile = feet / 5280;
         mile = mile.toFixed(0);
-        return mile;
+        return mile +" mile";
     }
     else{
         return " WARNING! Distance wouldn't be negative or zero."
@@ -65,5 +65,22 @@ function brickCalculator(floor){
         return totalBrick;
     }
 }
-var countBrick = brickCalculator(40);
+var countBrick = brickCalculator(19);
 console.log(countBrick);
+
+
+// Find  tiny Friend With For Loop
+
+function tinyFriend(friendList){
+    var tinyName = friendList[0];
+    for ( var i = 0; i< friendList.length; i++){
+        var currentName = friendList[i];
+        if(currentName.length<tinyName.length){
+            tinyName = currentName;
+        }
+    }
+    return tinyName;
+}
+var friends = ["Md Harun", "Md Zakariya", "Md Ibrahim",'Rabeya','Ayesha','Imran'];
+var getTinyName = tinyFriend(friends);
+console.log(getTinyName);
