@@ -1,9 +1,4 @@
-// feetToMile >>>>>>>>>>>>>
-// woodCalculator >>>>>>>>>
-// brickCalculator
-// tinyFriend
-
-// conver  Feet To Mile 
+//=======================  conver  Feet To Mile =========================================//
 function feetToMile(feet){
     if (feet>0){
         var mile = feet / 5280;
@@ -17,9 +12,9 @@ function feetToMile(feet){
 var checkMile = feetToMile(42240);
 console.log(checkMile);
 
-// Making javascript  Wood Calculator 
+//=============================   Making javascript  Wood Calculator =========================//
 function woodCalculator(chair, table, bed){
-    if ( chair> -1 && table > -1 && bed>-1){
+    if ( chair > 0 && table > 0 && bed> 0){
         chair = chair * 1;
         table = table * 3;
         bed   = bed   * 5;
@@ -30,11 +25,10 @@ function woodCalculator(chair, table, bed){
         return "WARNING! The number of Chair, Table or bed wouldn't be negative number."
     }
 }
-var woodRequired  = woodCalculator(6,1,1);
+var woodRequired  = woodCalculator(6,2,2);
 console.log(woodRequired);
 
-// making javascript brickcalculator 
-
+//=============================   making javascript brickcalculator  ============================//
 function brickCalculator(floor){
     var brickForPerFeet = 1000;
     var PerFloor1to10 = brickForPerFeet * 15; // Brick for per floor (1 to 10)
@@ -68,7 +62,8 @@ function brickCalculator(floor){
 var countBrick = brickCalculator(30);
 console.log(countBrick);
 
-// Find  tiny Friend With For Loop
+
+// ===============================  Find  tiny Friend With For Loop=====================//
 function tinyFriend(friendList){
     var tinyName = friendList[0];
     for ( var i = 0; i< friendList.length; i++){
@@ -83,19 +78,49 @@ var friends = ["Md Harun", "Md Zakariya", "Md Ibrahim",'Rabeya','Ayesha','Imran'
 var getTinyName = tinyFriend(friends);
 console.log(getTinyName);
 
-// Tiny Friend With While Loop 
-function tinyFriend1(name){
+// ===== BONUS BONUS BONUS BONUS === ANOTHER WAY Tiny Friend With While Loop ======= BONUS BONUS BONUS======//
+function tinyFriend(name){
     var tinyName = name[0];
     var i = 0;
     while(i<name.length){
         var currentName = name[i];
-        if(currentName.length<tinyName.length){
+        if(currentName.length < tinyName.length){
             tinyName = currentName;
         }
         i++;
     }
     return "Tiny Friend Name: " + tinyName;
 }
-var checkTinyName = tinyFriend1(["Md Harun",  "Md Ibrahim",'Moss Rabeya','Moss Ayesha',]);
+var checkTinyName = tinyFriend(["Md Harun",  "Md Ibrahim",'Moss Rabeya','Moss Ayesha',]);
 console.log(checkTinyName);
 
+//====BONUS BONUS BONUS BONUS =======  Another way for Brick Calculator ====BONUS BONUS BONUS BONUS ===//
+function brickCalculator(floor){
+    var brickForPerFeet = 1000;
+    var totalBrickNumber = 0;
+    if (floor <= 10 ){
+        var Floor1to10 = floor * 15 *brickForPerFeet;
+        totalBrickNumber = totalBrickNumber + Floor1to10;
+        return totalBrickNumber;
+    }
+    else if (floor <= 20 ){
+        var Floor1to10 = brickForPerFeet * 15 * 10;
+        floor = floor - 10;
+        var Floor11to20 = brickForPerFeet * 12 * floor;
+        totalBrickNumber = Floor1to10 + Floor11to20;
+        return totalBrickNumber;
+    }
+    else if (floor > 20 ){
+        var Floor1to10 = brickForPerFeet * 15 * 10;
+        var Floor11to20 = brickForPerFeet * 12 * 10;
+        floor = floor - 20;
+        var Floor21ToMore = brickForPerFeet * 10 * floor;
+        totalBrickNumber = Floor1to10 + Floor11to20 + Floor21ToMore;
+        return totalBrickNumber;
+    }
+    else{
+        return "WARNING! Floor wouldn't be negative number."
+    }
+}
+var countBrick = brickCalculator(45);
+console.log(countBrick);
